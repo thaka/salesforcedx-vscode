@@ -28,7 +28,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Required. Indicates if ActivationPlatform is enabled (true) or not (false). The default is false.",
+        "Description": "Required. Indicates whether the ActivationPlatform is enabled (true) or not (false). The default is false.",
         "Field Name": "enabled",
         "Field Type": "boolean"
       },
@@ -58,7 +58,7 @@
         "Field Type": "ActivationPlatformFileOutputFormat (enumeration of type string)"
       },
       {
-        "Description": "Required. The grouping of the output.Valid values are: PER_ACCOUNT PER_SEGMENT",
+        "Description": "Required. The grouping of the output.Valid values are: PER_ACCOUNT PER_SEGMENT PER_USER",
         "Field Name": "outputGrouping",
         "Field Type": "ActivationPlatformFileOutputGrouping (enumeration of type string)"
       },
@@ -1019,17 +1019,17 @@
   "DataSrcDataModelFieldMap": {
     "fields": [
       {
-        "Description": "Indicates whether a filter is applied to a DLO-to-DMO field mapping (true) or not (false). Available in API version 60.0 and later.",
+        "Description": "Indicates whether a filter is applied to a DLO-to-DMO field mapping (true) or not (false). This field corresponds to whether a DLO filter is applied in the Data Spaces tab in the UI. Available in API version 60.0 and later.",
         "Field Name": "filterApplied",
         "Field Type": "boolean"
       },
       {
-        "Description": "Required when filterApplied is true. The comparison operator used when filtering the DLO-to-DMO field mapping. Available in API version 60.0 and later.",
+        "Description": "Required when filterApplied is true. The comparison operator used when filtering the DLO-to-DMO field mapping. This field corresponds to the operation type of a DLO filter applied in the Data Spaces tab in the UI. Available in API version 60.0 and later.",
         "Field Name": "filterOperationType",
         "Field Type": "string"
       },
       {
-        "Description": "Required when filterApplied is true. The value used for filtering the DLO-to-DMO field mapping. Available in API version 60.0 and later.",
+        "Description": "Required when filterApplied is true. The value used for filtering the DLO-to-DMO field mapping. This field corresponds to the value of a DLO filter applied in the Data Spaces tab in the UI. Available in API version 60.0 and later.",
         "Field Name": "filterValue",
         "Field Type": "string"
       },
@@ -1362,7 +1362,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Determines whether you're using one set or multiple sets of credentials to access the external system. Corresponds to Identity Type in the user interface. The valid values are: Anonymous PerUser NamedUser",
+        "Description": "Determines whether you're using one set or multiple sets of credentials to access the external system. Corresponds to Identity Type in the user interface. The valid values are: Anonymous NamedCustomPrincipal NamedUser PerUser",
         "Field Name": "principalType",
         "Field Type": "External​PrincipalType​ (enumeration of type string)"
       },
@@ -1719,7 +1719,7 @@
   "MarketSegmentDefinition": {
     "fields": [
       {
-        "Description": "An XML clob to hold name value pairs for storing additional metadata. Not applicable for DBT type segment.",
+        "Description": "An XML CLOB to hold name-value pairs for storing additional metadata. Not applicable for DBT type segment.",
         "Field Name": "additionalMetadata",
         "Field Type": "string"
       },
@@ -1734,17 +1734,17 @@
         "Field Type": "string"
       },
       {
-        "Description": "Required. Display name of the field value.",
+        "Description": "Required. Specifies the display name of the field value.",
         "Field Name": "masterLabel",
         "Field Type": "string"
       },
       {
-        "Description": "Required when segmentType is UI. Points to relevant MktDataModelObject entity instance. Must be a valid developerName for an MktDataModelObject instance of Profile type.",
+        "Description": "Required when segmentType is UI. Points to relevant MktDataModelObject entity instance. A valid developerName for an MktDataModelObject instance of Profile type.",
         "Field Name": "segmentOn",
         "Field Type": "string"
       },
       {
-        "Description": "Required. Type of the segment to be created. Only DBT is supported via API. Values are: DBT Lookalike UI EinsteinGPTSegmentsUI",
+        "Description": "Required. Specifies the type of the segment to be created. Only DBT is supported via API. Values are: DBT Dynamic Lookalike UI EinsteinGPTSegmentsUI",
         "Field Name": "segmentType",
         "Field Type": "MarketSegmentType (enumeration of type string)"
       }
@@ -2888,7 +2888,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Type of the affinity score that’s defined.Valid values are: CAP—Capacity, Ability, Propensity (CAP) RFM—Recency, Frequency, Monetary (RFM) The default value is RFM.",
+        "Description": "Type of the affinity score that's defined. Valid values are CAP—Capacity, Ability, Propensity (CAP), or RFM—Recency, Frequency, Monetary (RFM). The default value is RFM.",
         "Field Name": "affinityScoreType",
         "Field Type": "AffinityScoreType (enumeration of type string)"
       },
@@ -2908,7 +2908,7 @@
         "Field Type": "int"
       },
       {
-        "Description": "Required. Ranges that are referenced in the affinity score calculation. This field is used with scoreRangeList. For example, to calculate RFM with numberOfRanges value as 3, provide the values for the scoreRangeList field in this format.",
+        "Description": "Required. Ranges that are referenced in the affinity score calculation. This field is used with scoreRangeList. For example, to calculate RFM with numberOfRanges value as 3, provide the values for the scoreRangeList field.",
         "Field Name": "scoreRangeList",
         "Field Type": "string"
       },
@@ -3524,6 +3524,16 @@
         "Field Type": "string"
       },
       {
+        "Description": "The source for the dashboard background.",
+        "Field Name": "backgroundSource",
+        "Field Type": "string"
+      },
+      {
+        "Description": "A custom configuration for the dashboard.",
+        "Field Name": "customConfig",
+        "Field Type": "string"
+      },
+      {
         "Description": "The description of the dashboard.",
         "Field Name": "description",
         "Field Type": "string"
@@ -3752,7 +3762,7 @@
         "Field Type": "AnalyticsTextWidgetDef[]"
       },
       {
-        "Description": "Required. The widget type.Values are: button component container filter image metric parameter text summary visualization",
+        "Description": "Required. The widget type.Values are: button container extension filter image metric parameter text summary visualization",
         "Field Name": "type",
         "Field Type": "AnalyticsWidgetType (enumeration of type string)"
       },
@@ -3779,7 +3789,7 @@
   "AnalyticsAssetAction": {
     "fields": [
       {
-        "Description": "Required. The action type. Values are: flow navigate recordaction",
+        "Description": "Required. The action type. Values are: filter flow navigate parameter recordaction",
         "Field Name": "actionType",
         "Field Type": "AnalyticsActionType (enumeration of type string)"
       },
@@ -3860,7 +3870,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "The type of dynamic token. Valid values include query and insights.",
+        "Description": "The type of dynamic token. Values are: query insights reference",
         "Field Name": "type",
         "Field Type": "AnalyticsDynamicTokenType"
       }
@@ -4078,6 +4088,11 @@
         "Field Type": "string"
       },
       {
+        "Description": "The creation source for the visualization.",
+        "Field Name": "creationSource",
+        "Field Type": "string"
+      },
+      {
         "Description": "Required. The data source for the visualization.",
         "Field Name": "dataSource",
         "Field Type": "string"
@@ -4175,7 +4190,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "The function type of the visualization field. Values are: Avg Count CountD DatePartDay DatePartMonth DatePartQuarter DatePartWeek DatePartWeekDay DatePartYear DateTruncDay DateTruncMonth DateTruncQuarter DateTruncWeek DateTruncYear FiscalDatePartMonth FiscalDatePartQuarter FiscalDatePartWeek FiscalDatePartYear FiscalDateTruncMonth FiscalDateTruncQuarter FiscalDateTruncWeek FiscalDateTruncYear Max Mdy Median Min My Stdev Stdevp Sum UserAgg Var Varp",
+        "Description": "The function type of the visualization field. Values are: Attr Avg Count CountD DatePartDay DatePartHour DatePartMinute DatePartMonth DatePartQuarter DatePartSecond DatePartWeek DatePartWeekDay DatePartYear DateTruncDay DateTruncHour DateTruncMinute DateTruncMonth DateTruncQuarter DateTruncSecond DateTruncWeek DateTruncYear FiscalDatePartMonth FiscalDatePartQuarter FiscalDatePartWeek FiscalDatePartYear FiscalDateTruncMonth FiscalDateTruncQuarter FiscalDateTruncWeek FiscalDateTruncYear Max Mdy Median Min My Stdev Stdevp Sum UserAgg Var Varp",
         "Field Name": "function",
         "Field Type": "VisualizationFieldFunctionType (enumeration of type string)"
       },
@@ -4185,14 +4200,39 @@
         "Field Type": "string"
       },
       {
+        "Description": "The hierarchy level for the field.",
+        "Field Name": "hierarchyLevel",
+        "Field Type": "integer"
+      },
+      {
         "Description": "The label for the field.",
         "Field Name": "label",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The latitude or Y value for the field.",
+        "Field Name": "latitudeOrY",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The longitude or X value for the field.",
+        "Field Name": "longitudeOrX",
         "Field Type": "string"
       },
       {
         "Description": "The name of the data source object for the field.",
         "Field Name": "objectName",
         "Field Type": "string"
+      },
+      {
+        "Description": "The position name for the field.",
+        "Field Name": "positionName",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The positional data for the field.",
+        "Field Name": "positional",
+        "Field Type": "base64binary"
       },
       {
         "Description": "The expression to do a quick table calculation with.",
@@ -4205,7 +4245,7 @@
         "Field Type": "VisualizationFieldRoleType (enumeration of type string)"
       },
       {
-        "Description": "The type of the visualization field. Values are: Field MeasureNames MeasureValues",
+        "Description": "The type of the visualization field. Values are: Field MapPosition MeasureNames MeasureValues",
         "Field Name": "type",
         "Field Type": "VisualizationFieldType (enumeration of type string)"
       }
@@ -6048,6 +6088,11 @@
         "Field Type": "BatchCalcJobCustomNode[]"
       },
       {
+        "Description": "Specifies the currency conversion type for the data processing engine definition.Available in API version 67.0 and later.",
+        "Field Name": "currencyConversion",
+        "Field Type": "string"
+      },
+      {
         "Description": "Stores the Data Space API Name from Data 360. Available in API version 60.0 and later.",
         "Field Name": "dataSpaceApiName",
         "Field Type": "string"
@@ -6118,7 +6163,7 @@
         "Field Type": "BatchCalcJobParameter[]"
       },
       {
-        "Description": "The process type of a data processing engine. These process types may be available to you depending on your industry solution and permission sets. Valid values are: AccountingPeriodClosure AccountingSubledger—This value is reserved for internal use. ActionableList AdvancedAccountForecast BenefitManagement BillingSchedulesforInvoiceGeneration CDPEnrichment ChannelInventoryManagement—Available in API version 63.0 and later. CollectionPlan—Available in API version 65.0 and later. CriteriaBsdSearchAndFilter DataProcessingEngine DecisionMatrixDataUpload Decisiontable Education EmployeeService—Available in API version 63.0 and later. FinancialSummaryRollup ForeignExchangeGainLossCalculations—Available in API version 65.0 and later. FSCHierarchyRollUp Fundraising—Available in API version 64.0 and later. FundraisingRollups—Available in API version 63.0 and later. GeneralLedgerAccountBalancesSummary—Available in API version 65.0 and later. InventoryBatchSearch—Available in API version 65.0 and later. InventorySearch—Available in API version 65.0 and later. InvoiceGeneration Loyalty LegalEntityAccountingPeriodClosureAdvanced—Available in API version 63.0 and later. LifeSciencbatchcalesCommercialTerritoryAlignment—Available in API version 63.0 and later. LifeSciencesCustomerEngagement—Available in API version 64.0 and later. LoyaltyPartnerManagement LoyaltyPointsAggregation NextGenForecasting—Available in API version 64.0 and earlier. NetZero PatientServicesProgram—Available in API version 64.0 and later. PnmRosterFileUpload PriceProtection ProductCatalogManagement ProgramBasedBusiness ProviderSearch—This value is reserved for internal use. Rebates Recruitment RevenueTransactionManagement—Available in API version 63.0 and later. SalesAgreement—Available in API version 63.0 and later. TestAtomicWritebackScale—Available in API version 64.0 and later. TestProcessType UsageManagement",
+        "Description": "The process type of a data processing engine. These process types may be available to you depending on your industry solution and permission sets. Valid values are: AccountingPeriodClosure AccountingSubledger—This value is reserved for internal use. AccrualsAndPayoutEngine ActionableList AdvancedAccountForecast AutomotiveFoundation BenefitManagement BillingSchedulesforInvoiceGeneration CDPEnrichment ChannelInventoryManagement—Available in API version 63.0 and later. CollectionPlan—Available in API version 65.0 and later. ContextService—Available in API version 67.0 and later. CriteriaBsdSearchAndFilter DataProcessingEngine DecisionMatrixDataUpload Decisiontable Education EmployeeService—Available in API version 63.0 and later. EnergyUtilitiesSales FinancialSummaryRollup FlexibleHierarchy ForeignExchangeGainLossCalculations—Available in API version 65.0 and later. FSCHierarchyRollUp Fundraising—Available in API version 64.0 and later. FundraisingRollups—Available in API version 63.0 and later. GeneralLedgerAccountBalancesSummary—Available in API version 65.0 and later. InventoryBatchSearch—Available in API version 65.0 and later. InventorySearch—Available in API version 65.0 and later. InvoiceGeneration Loyalty LegalEntityAccountingPeriodClosureAdvanced—Available in API version 63.0 and later. LifeSciencbatchcalesCommercialTerritoryAlignment—Available in API version 63.0 and later. LifeSciencesCustomerEngagement—Available in API version 64.0 and later. LoyaltyPartnerManagement LoyaltyPointsAggregation MediaAdSales NextGenForecasting—Available in API version 64.0 and earlier. NetZero PatientServicesProgram—Available in API version 64.0 and later. PlanningAndForecasting PnmRosterFileUpload PriceProtection ProductCatalogManagement ProgramBasedBusiness ProviderSearch—This value is reserved for internal use. Rebates RebateAndAccrualManagementAdvanced Recruitment RevenueTransactionManagement—Available in API version 63.0 and later. SalesAgreement—Available in API version 63.0 and later. TestAtomicWritebackScale—Available in API version 64.0 and later. TestProcessType UsageManagement",
         "Field Name": "processType",
         "Field Type": "BatchCalcProcessType (enumeration of type string)"
       },
@@ -6126,6 +6171,11 @@
         "Description": "Status of a data processing engine definition. Valid values are: Active Inactive",
         "Field Name": "status",
         "Field Type": "BatchJobDefinition​Status (enumeration of type string)"
+      },
+      {
+        "Description": "ISO code of the target currency for currency conversion in the data processing engine definition.Available in API version 67.0 and later.",
+        "Field Name": "targetCurrencyIsoCode",
+        "Field Type": "string"
       },
       {
         "Description": "Collection of data transformation nodes in a data processing engine.",
@@ -6371,6 +6421,12 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_batchcalcjobdefinition.htm",
     "parent": "Metadata"
   },
+  "BatchCalcJobHierarchyPath​AggregateField": {
+    "fields": [],
+    "short_description": "Represents a collection of fields relating to an aggregation field in a hierarchy path node of a data processing engine.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_batchcalcjobdefinition.htm",
+    "parent": "Metadata"
+  },
   "BatchCalcJobFilter​Criteria": {
     "fields": [],
     "short_description": "Represents a collection of fields relating to a filter condition in a filter node in a data processing engine.",
@@ -6477,7 +6533,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "The type of process that the Batch Management job must execute. This field is available in API version 55.0 and later. Valid values are: Flow Loyalty Program Process",
+        "Description": "The type of process that the Batch Management job must execute. This field is available in API version 55.0 and later. Valid values are: BulkUpdate Calc—Data Processing Engine ConsumptionOveragesCalculation DecisionTableRefresh DeepCloneSalesAgreement FlattenAccountIOUHierarchyBatchJob Flow EnergyUseRecordCreationBatchJob EntitlementCreationBatchJob HighScaleBreProcess IndustriesLSCommercial InvoiceDTPRunBatchJob InvoiceRecoveryRunBatchJob InvoiceRunBatchJob LifeSciProviderActivityGoalSharingBatchJob LoyaltyProgramProcess NetUnitRateCalculation NextGenCommitmentBatchProcessingJob ManagerProvisioning PbbToOptyConversion ProductCatalogCacheRefresh PromotionChannelPropagationBatchJob RatableSummaryCreation ServiceProcess StoreAssortmentPropagationBatchJob SummaryCreation WorkDotComToHRManagerProvisioning",
         "Field Name": "type",
         "Field Type": "string (enumeration of type string)"
       }
@@ -6619,6 +6675,11 @@
       {
         "Description": "Indicates whether to create a default payment schedule policy and payment schedule treatment (true) or not (false). The default value is false. If enabled, payment schedules and payment schedule items are created during financial transactions such as posting of invoices. Available in API version 64.0 and later with Revenue Cloud Billing.",
         "Field Name": "enablePaymentSchedulesAndItemsCreation",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether to issue refunds and settle balances (true) or not (false). The default value is false. If enabled, refunds are issued and credit memos are applied to any remaining invoice balance when customers amend or cancel an order. Available in API version 67.0 and later.",
+        "Field Name": "enableRefundIssuingAndBalanceSettlement",
         "Field Type": "boolean"
       },
       {
@@ -6825,7 +6886,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Indicates whether the variable is injected into the prompt sent to the Agentforce model. If true, the variable appears in the Included Fields section of the UI. The default variables Id, EndUserId, and EndUserLanguage always appear in the Included Fields section of the UI, regardless of their value of includeInPrompt. We recommend that you don't change the value of includeInPrompt for these default variables, as changing the value can prevent your agent from accessing important session data.Note Available in API version 63.0 and later.",
+        "Description": "Indicates whether the variable is injected into the prompt sent to the Agentforce model. If true, the variable appears in the Included Fields section of the UI. The default variables Id, EndUserId, and EndUserLanguage always appear in the Included Fields section of the UI, regardless of their value of includeInPrompt. We recommend that you don't change the value of includeInPrompt for these default variables, as changing the value can prevent your agent from accessing important session data. Available in API version 63.0 and later.",
         "Field Name": "includeInPrompt",
         "Field Type": "boolean"
       },
@@ -8003,9 +8064,9 @@
         "Field Type": "string"
       },
       {
-        "Description": "Applies if multiple briefcase types are available in your org. Enum values include: Standard: Standard briefcase that can be used with priming APIs. HighVolume: Increased capacity briefcase that’s used with performance priming in the Salesforce Field Service mobile app. MobileAppSync: Automatically generated briefcase that’s used for performance priming in the Salesforce Field Service mobile app.",
+        "Description": "Applies if multiple briefcase types are available in your org. Valid values include: Standard: Standard briefcase that can be used with priming APIs. HighVolume: Increased capacity briefcase that’s used with performance priming in the Salesforce Field Service mobile app. MobileAppSync: Automatically generated briefcase that’s used for performance priming in the Salesforce Field Service mobile app.",
         "Field Name": "type",
-        "Field Type": "BriefcaseType"
+        "Field Type": "BriefcaseType (enumeration of type string)"
       }
     ],
     "short_description": "Represents a briefcase definition. A briefcase makes selected records available for specific users and groups to view when they’re offline in the Salesforce Field Service mobile app for iOS and Android. This type extends the Metadata metadata type and inherits its fullName field.",
@@ -10901,6 +10962,11 @@
         "Field Type": "ConversationMessageConstant[]"
       },
       {
+        "Description": "Specifies the business intent of the Conversation Message Definition. Valid values are: AccountUpdate Authentication Feedback OrderUpdate PromotionalOutreach Reminder Response",
+        "Field Name": "contentCategory",
+        "Field Type": "ConversationMessageContentCategory (enumeration of type string)"
+      },
+      {
         "Description": "The description of the conversation message definition.",
         "Field Name": "description",
         "Field Type": "string"
@@ -11012,7 +11078,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Required. The type of the conversation message constant primitive value. Valid values are: ImageAsset Text Url",
+        "Description": "Required. The type of the conversation message constant primitive value. Valid values are: FileAsset ImageAsset Text Url",
         "Field Name": "type",
         "Field Type": "ConversationMessageConstantValueType (enumeration of type string)"
       },
@@ -11411,7 +11477,7 @@
   "ConversationVendorInfo": {
     "fields": [
       {
-        "Description": "If set to true, agents can single sign-on (SSO) into their contact center using Salesforce as the identity provider (IdP). Behind the scenes, Salesforce is used as the SAML IdP in the Single Sign-On connected app for the contact center. If set to false, an IdP other than Salesforce is used or an IdP isn’t used at all. The default value is false. If this value is set to false and you want to use Salesforce as the IdP for your contact center, set this value and the namedCredentialSupported value to true and configure the service_cloud_voice.PartnerSSO interface in your Apex integration class. Available in API version 53.0 and later. Applies to the following implementations: Service Cloud Voice with Partner Telephony Service Cloud Voice with Partner Telephony from Amazon Connect Bring Your Own Channel for CCaaS",
+        "Description": "If set to true, agents can single sign-on (SSO) into their contact center using Salesforce as the identity provider (IdP). Behind the scenes, Salesforce is used as the SAML IdP in the Single Sign-On external client app for the contact center. If set to false, an IdP other than Salesforce is used or an IdP isn’t used at all. The default value is false. If this value is set to false and you want to use Salesforce as the IdP for your contact center, set this value and the namedCredentialSupported value to true and configure the service_cloud_voice.PartnerSSO interface in your Apex integration class. Available in API version 53.0 and later. Applies to the following implementations: Service Cloud Voice with Partner Telephony Service Cloud Voice with Partner Telephony from Amazon Connect Bring Your Own Channel for CCaaS",
         "Field Name": "agentSSOSupported",
         "Field Type": "boolean"
       },
@@ -11689,7 +11755,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Required. The URL for this CspTrustedSite.This field must include a domain name and can include a port. For example, https://example.com or https://example.com:8080. To reduce repetition, you can use the wildcard character * (asterisk). For example, *.example.com. For a third-party API, the URL must begin with https://. For example, https://example.com. For a WebSocket connection, the URL must begin with wss://. For example, wss://example.com. Otherwise, the URL cannot be malformed. Examples of malformed URLs that fail a syntax check are malformed^url.example.com, and https://{subdomain}.example.com. To add an EndpointUrl based on parameters, build the URL before you add it to this Metadata Type.",
+        "Description": "Required. The URL for this CspTrustedSite.This field must include a domain name and can include a port. For example, https://example.com or https://example.com:8080. To reduce repetition, you can use the wildcard character * (asterisk). For example, *.example.com. For a third-party API, the URL must begin with https://. For example, https://example.com. For a WebSocket connection, the URL must begin with wss://. For example, wss://example.com. Otherwise, the URL cannot be malformed. Examples of malformed URLs that fail a syntax check are malformed^url.example.com, and https://{subdomain}.example.com. Before February 2025, it was possible to save a malformed URL. Malformed URLs are excluded from generated CSP HTTP headers. To keep your Trusted URLs list accurate, remove any malformed entries. You can use an Apex class to find all malformed URLs. See the knowledge article, Identify Malformed Trusted URLs. To add an EndpointUrl based on parameters, build the URL before you add it to this Metadata Type.",
         "Field Name": "endpointUrl",
         "Field Type": "string"
       },
@@ -11828,6 +11894,11 @@
       {
         "Description": "The list of tabs included in this application. In API version 12.0, the fullName for built-in tabs like Home, Account, and Reports, is the name of the tab (Home, for example). In API version 13.0 and later, built-in tabs are prefixed with standard-. For example, to reference the Account tab you would use standard-Account.In API version 42.0, this field was renamed from tab to tabs.",
         "Field Name": "tabs",
+        "Field Type": "string[]"
+      },
+      {
+        "Description": "The fully qualified name of an interal React app, which is represented by the UIBundle metadata type, such as c__propertymanagementapp. When configured, makes the app available in the App Launcher. This field is available in API version 67.0 and later.",
+        "Field Name": "uiBundle",
         "Field Type": "string[]"
       },
       {
@@ -13703,7 +13774,7 @@
   "IndexField": {
     "fields": [
       {
-        "Description": "Required. The API name for the field that’s part of the index. This value must match the fullName value for the corresponding field in the fields section and be marked as required. When querying a big object record via SOQL and passing the results as arguments to the delete API, if any index field name has a leading or trailing white space, you can't delete the big object record.",
+        "Description": "Required. The API name for the field that’s part of the index. This value must match the fullName value for the corresponding field in the fields section and be marked as required.It's important to note that when querying a big object record via SOQL and passing the results as arguments to the delete API, if any index field name has a leading or trailing white space, you can't delete the big object record.",
         "Field Name": "name",
         "Field Type": "string"
       },
@@ -16094,6 +16165,33 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_dashboard.htm",
     "parent": "Metadata"
   },
+  "DashboardComponentTranslation": {
+    "fields": [
+      {
+        "Description": "The translated description for dashboard component.",
+        "Field Name": "description",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The translated footer for dashboard component",
+        "Field Name": "footer",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The translated label for dashboard component",
+        "Field Name": "label",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The translated name for dashboard component.",
+        "Field Name": "naem",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "This metadata type allows you to translate Lightning Experience dashboard components for a variety of languages. This type extends the Metadata metadata type and inherits its fullName field. The ability to translate component labels is part of the Translation Workbench.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_dashboardcomponenttranslation.htm",
+    "parent": "Metadata"
+  },
   "DataCategoryGroup": {
     "fields": [
       {
@@ -16252,6 +16350,11 @@
         "Field Type": "DecisionTable​DataSourceType (enumeration of type string)"
       },
       {
+        "Description": "Versions of the decision table that were imported from a CSV file. Each version captures a separate import iteration with its own activation window, rank, and refresh status. Available in API version 67.0 and later.",
+        "Field Name": "decisionTable​FileImportVersions",
+        "Field Type": "DecisionTableFileImportVersion[]"
+      },
+      {
         "Description": "Parameters that you specify in a decision table.",
         "Field Name": "decisionTable​Parameters",
         "Field Type": "DecisionTableParameter[]"
@@ -16277,7 +16380,7 @@
         "Field Type": "DecisionTableDownloadStatus (enumeration of type string)"
       },
       {
-        "Description": "Indicates the backing storage for the Decision Table. Valid values are: Dmo Hbase Hbpo Solr Soql Execution type of Hbase must be passed in all caps (HBASE) in POST and PATCH calls.",
+        "Description": "Indicates the backing storage for the Decision Table. Valid values are: DLO—Available in API version 67.0 and later. Replaces DMO. HBASE HBPO SOLR SOQL",
         "Field Name": "executionType",
         "Field Type": "DecisionTableExecutionType (enumeration of type string)"
       },
@@ -16297,6 +16400,11 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether the CSV based decision table supports multiple file-import versions (true) or not (false). When set to true, the decisionTableFileImportVersions collection captures each version. The default value is true. Available in API version 67.0 and later.",
+        "Field Name": "isVersioned",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "The date and time on which the last incremental refresh occured for the decision table.",
         "Field Name": "lastIncremental​SyncDate",
         "Field Type": "string"
@@ -16312,7 +16420,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Specifies the refresh status of the cached data in the decision table.Valid values are: Completed Failed InProgress Initiated",
+        "Description": "Specifies the refresh status of the cached data in the decision table.Valid values are: Completed CompletedWithWarnings—Available in API version 67.0 and later. Failed InProgress Initiated",
         "Field Name": "refreshStatus",
         "Field Type": "DecisionTableRefreshStatus (enumeration of type string)"
       },
@@ -16353,6 +16461,68 @@
       }
     ],
     "short_description": "Represents the information about a decision table.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_decisiontable.htm",
+    "parent": "Metadata"
+  },
+  "DecisionTableFileImportVersion": {
+    "fields": [
+      {
+        "Description": "The date and time when the decision table version becomes inactive.",
+        "Field Name": "endDate",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The date and time on which the last incremental refresh occured for the decision table version.",
+        "Field Name": "lastIncremental​SyncDate",
+        "Field Type": "string"
+      },
+      {
+        "Description": "The date and time on which the last refresh occured for the decision table version.",
+        "Field Name": "lastSyncDate",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The current rank of the decision table version that’s used to determine when it can get chosen for processing.",
+        "Field Name": "rank",
+        "Field Type": "int"
+      },
+      {
+        "Description": "The reason the most recent refresh of the decision table version data failed.",
+        "Field Name": "refresh​FailedReason",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Specifies the refresh status of the cached data in the decision table version.Valid values are: Completed CompletedWithWarnings Failed InProgress Initiated",
+        "Field Name": "refreshStatus",
+        "Field Type": "DecisionTable​RefreshStatus (enumeration of type string)"
+      },
+      {
+        "Description": "Required. The date and time when the decision table version becomes active.",
+        "Field Name": "startDate",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Specifies the progress status of the CSV upload for the decision table version.Valid values are: Completed CompletedWithErrors Failed UploadInProgress",
+        "Field Name": "uploadStatus",
+        "Field Type": "DecisionTable​UploadStatus (enumeration of type string)"
+      },
+      {
+        "Description": "Required. The name of the decision table version. The maximum length is 120 characters.",
+        "Field Name": "versionName",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The decision table version number. The combination of decisionTable and versionNumber must be unique.",
+        "Field Name": "versionNumber",
+        "Field Type": "int"
+      },
+      {
+        "Description": "Required. The status of the decision table version.Valid values are: ActivationInProgress Active Inactive",
+        "Field Name": "versionStatus",
+        "Field Type": "DecisionTableStatus (enumeration of type string)"
+      }
+    ],
+    "short_description": "Represents a version of a CSV file-import for a CSV-based decision table. Each version captures a separate import iteration with its own activation window, rank, and refresh status. Available in API version 67.0 and later.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_decisiontable.htm",
     "parent": "Metadata"
   },
@@ -20169,13 +20339,18 @@
         "Field Type": "string"
       },
       {
+        "Description": "Specifies the execution mode for the expression set definition.Valid values are: Cloud Local",
+        "Field Name": "executionMode",
+        "Field Type": "ExpsSetExecutionMode (enumeration of type string)"
+      },
+      {
         "Description": "Specifies the scale of the inputs that an expression set processes. The scale determines where the expression set is executed. Valid values are: High Low Available in API version 61.0 and later.",
         "Field Name": "executionScale",
         "Field Type": "ExpsSetExecutionScale (enumeration of type string)"
       },
       {
-        "Description": "The interface source type designed by the consuming cloud that's making a customized expression set builder available to its users. Valid values are: Constraint (Available in API version 62.0 and later). DiscoveryProcedure (Available in API version 61.0 and later). EventOrchestration (Available in API version 61.0 and later). ItServiceManagement (Available in API version 65.0 and later). PricingProcedure QualificationProcedure RatingDiscoveryProcedure (Available in API version 61.0 and later). Sample Available in API version 59.0 and later.",
-        "Field Name": "interfaceSourceType",
+        "Description": "The interface source type designed by the consuming cloud that's making a customized expression set builder available to its users. Valid values are: Bre Constraint (Available in API version 62.0 and later). DiscoveryProcedure (Available in API version 61.0 and later). EventOrchestration (Available in API version 61.0 and later). GpaCalculationProcedure (Available in API version 67.0 and later). IntelligentDecisionStudio (Available in API version 67.0 and later). ItServiceManagement (Available in API version 65.0 and later). PricingProcedure QualificationProcedure RatingDiscoveryProcedure (Available in API version 61.0 and later). RatingProcedure (Available in API version 67.0 and later). Sample Available in API version 59.0 and later.",
+        "Field Name": "interfaceSource​Type",
         "Field Type": "ExpsSetInterfaceSourceType (enumeration of type string)"
       },
       {
@@ -20184,19 +20359,24 @@
         "Field Type": "string"
       },
       {
-        "Description": "The process type that uses the expression set rule. Valid values are: Bre GpaCalculation InsuranceClaimProcessing—Available in API version 65.0 and later. ItServiceManagement—Available in API version 65.0 and later. PlanCostCalculation RatingDiscovery StudentInformationSystem—Available in API version 65.0 and later. StudentSuccess When Business Rules Engine is enabled for a Salesforce instance, the default value is 'Bre’. Other process types are available to you depending on your industry solution and permission sets.",
+        "Description": "The process type that uses the expression set rule. Valid values are: AssetRefreshEligibility—Available in API version 67.0 and later. Bre GpaCalculation InsuranceClaimProcessing—Available in API version 65.0 and later. ItServiceManagement—Available in API version 65.0 and later. PlanCostCalculation Program—Available in API version 67.0 and later. RatingDiscovery StockRotation—Available in API version 67.0 and later. StudentInformationSystem—Available in API version 65.0 and later. StudentSuccess When Business Rules Engine is enabled for a Salesforce instance, the default value is Bre. Other process types are available to you depending on your industry solution and permission sets.",
         "Field Name": "processType",
         "Field Type": "ExpsSetProcessType (enumeration of type string)"
       },
       {
         "Description": "Indicates whether the initial value of expression set variables and context tags is null or a default value. Valid values are: Default Off Available in API version 64.0 and later.",
-        "Field Name": "resourceInitializationType",
+        "Field Name": "resource​InitializationType",
         "Field Type": "ResourceInitializationType (enumeration of type string)"
       },
       {
         "Description": "Defines whether an expression set is a template or not.",
         "Field Name": "template",
         "Field Type": "boolean"
+      },
+      {
+        "Description": "The type of the expression set definition.Valid values are: Custom Standard",
+        "Field Name": "type",
+        "Field Type": "ExpsSetType (enumeration of type string)"
       },
       {
         "Description": "The subtype of the industry that's using the expression set definition. If no value is specified, the field defaults to null.",
@@ -20232,13 +20412,23 @@
       },
       {
         "Description": "The full name of an expression set definition.",
-        "Field Name": "expressionSetDefinition",
+        "Field Name": "expressionSet​Definition",
         "Field Type": "string"
+      },
+      {
+        "Description": "The interface source type designed by the consuming cloud that's making a customized expression set builder available to its users. Valid values are: Bre Constraint DiscoveryProcedure EventOrchestration GpaCalculationProcedure IntelligentDecisionStudio ItServiceManagement PricingProcedure QualificationProcedure RatingDiscoveryProcedure RatingProcedure Sample Available in API version 67.0 and later.",
+        "Field Name": "interface​SourceType",
+        "Field Type": "ExpsSetInterfaceSourceType (enumeration of type string)"
       },
       {
         "Description": "Required. The UI label of an expression set definition.",
         "Field Name": "label",
         "Field Type": "string"
+      },
+      {
+        "Description": "The process type that uses the expression set rule. Available in API version 67.0 and later.",
+        "Field Name": "processType",
+        "Field Type": "ExpsSetProcessType (enumeration of type string)"
       },
       {
         "Description": "The rank of the Expression Set Definition Version. When more than one enabled version matches an expression set call, and the start date time to end date time spans overlap, the version with the highest rank is chosen. Available in API version 62.0 and later.",
@@ -20247,7 +20437,7 @@
       },
       {
         "Description": "Indicates whether the decision explanation is exposed to external users (true) or not (false). The default value is false. Available in API version 56.0 and later.",
-        "Field Name": "shouldShowExplExternally",
+        "Field Name": "shouldShow​ExplExternally",
         "Field Type": "boolean"
       },
       {
@@ -20256,7 +20446,7 @@
         "Field Type": "dateTime"
       },
       {
-        "Description": "Required. The status of an expression set definition. Possible values are: Active Draft Inactive InvalidDraft Obsolete",
+        "Description": "Required. The status of an expression set definition. Valid values are: Active Draft Inactive InvalidDraft Obsolete",
         "Field Name": "status",
         "Field Type": "ExpsSetStatus (enumeration of type string)"
       },
@@ -20288,7 +20478,7 @@
   "ExpressionSet​​Step": {
     "fields": [
       {
-        "Description": "Specifies the type of action this step executes.Valid values are: AiAcceleratorSubscriberChurnPrediction ApexAction ApexListAction (Available in API version 64.0 and later.) AssetDiscovery AssignBadgeToMember AssignParameterValues AssignmentElement AssignmentRuleCustomUser (Available in API version 65.0 and later.) AssignmentRuleCustomQueue (Available in API version 65.0 and later.) AteprlRecordCreator (Available in API version 65.0 and later.) BaseRate BindingObjectRateAdjustmentResolution (Available in API version 64.0 and later.) BindingObjectRateCardEntryResolution (Available in API version 64.0 and later.) BreAggregator BreAggregatorAssignment BreakdownLineMapping (Available in API version 64.0 and later.) CalculateQuantity (Available in API version 64.0 and later.) ChangeMemberTier CheckMemberBadgeAssignment CommercePricing (Available in API version 62.0 and later.) CommitmentAdjustment (Available in API version 65.0 and later.) ComplianceCheck ComplianceControlLog (Available in API version 62.0 and later.) Constraint (Available in API version 64.0 and later.) CreditPoints Crud DebitPoints DerivedPricing DiscountDistributionService DiscoverySettings (Available in API version 64.0 and later.) DynamicRulesExecutor (Available in API version 65.0 and later.) EvaluateCategoryDisqualification (Available in API version 62.0 and later.) EvaluateCategoryQualification (Available in API version 62.0 and later.) FormulaBasedRating (Available in API version 62.0 and later.) FormulaBasedPricing GetCustomerPromotionAttrValue (Available in API version 64.0 and later.) GetMemberAttributesValues GetMemberPointBalance GetMemberPromotions GetMemberTier GetOutputsFromDecisionMatrix GetOutputsFromDecisionTable GroupingAndAggregateRating (Available in API version 62.0 and later.) IncreaseUsageForCumulativePromotion IntegrationOrchestration IssueExtendedReward (Available in API version 64.0 and later.) IssueVoucher ManualRatingDiscount (Available in API version 62.0 and later.) MapProduct MinimumPrice (Available in API version 62.0 and later.) MultiRecipientProductQualification (Available in API version 64.0 and later.) NegotiatedBaseRate (Available in API version 64.0 and later.) NegotiatedRateCardEntryResolution (Available in API version 64.0 and later.) NegotiatedTierAdjustment (Available in API version 64.0 and later.) NegotiatedVolumeAdjustment (Available in API version 64.0 and later.) PriceGuidance (Available in API version 64.0 and later.) PriceRevision (Available in API version 65.0 and later.) PricingPropagation (Available in API version 65.0 and later.) PricingSettings PromotionsDiscount PromotionExecution (Available in API version 65.0 and later.) RateAdjustmentByAttributeResolution (Available in API version 62.0 and later.) RateAdjustmentByTierResolution (Available in API version 62.0 and later.) RateAdjustmentMatrix (Available in API version 62.0 and later.) RateAssignment (Available in API version 62.0 and later.) RateCardEntryResolution (Available in API version 62.0 and later.) RateCardResolution (Available in API version 62.0 and later.) RatingAttributeDiscount RatingBreakdownLineMapping (Available in API version 65.0 and later.) RatingRoundingValues (Available in API version 62.0 and later.) RatingSetting RatingTierDiscount RatingVolumeDiscount RecordAction RoundingValues RuleFetch RunFlow RunProgramProcess SampleCustomElementWithExpressionAndListFilter StopPricing StopRating (Available in API version 62.0 and later.) TermGpaCalculation (Available in API version 64.0 and later.) TermGpaReporting (Available in API version 64.0 and later.) TestCustomElement UpdateCurrentValueForMemberAttribute UpdateCustomerPromotionAttrValue (Available in API version 64.0 and later.) UpdatePointBalance UpdateUsageForCumulativePromotion UpsertRecord (Available in API version 64.0 and later.) VolumeTierDiscount",
+        "Description": "Specifies the type of action this step executes.Valid values are: AiAcceleratorSubscriberChurnPrediction ApexAction ApexListAction (Available in API version 64.0 and later.) AssetDiscovery AssignBadgeToMember AssignParameterValues AssignmentElement AssignmentRuleCustomQueue (Available in API version 65.0 and later.) AssignmentRuleCustomUser (Available in API version 65.0 and later.) AteprlRecordCreator (Available in API version 65.0 and later.) AttributeAdjustmentMatrix AttributeDiscount AutomatedClaimsProcessingValidation BaseRate BindingObjectRateAdjustmentResolution (Available in API version 64.0 and later.) BindingObjectRateCardEntryResolution (Available in API version 64.0 and later.) BreAggregator BreAggregatorAssignment BreakdownLineMapping (Available in API version 64.0 and later.) BundleDiscount CalculateQuantity (Available in API version 64.0 and later.) ChangeMemberTier CheckMemberBadgeAssignment CommercePricing (Available in API version 62.0 and later.) CommitmentAdjustment (Available in API version 65.0 and later.) ComplianceCheck ComplianceControlLog (Available in API version 62.0 and later.) Constraint (Available in API version 64.0 and later.) CreditPoints Crud DebitPoints DerivedPricing DiscountDistributionService DiscoverySettings (Available in API version 64.0 and later.) DynamicRulesExecutor (Available in API version 65.0 and later.) EvaluateCategoryDisqualification (Available in API version 62.0 and later.) EvaluateCategoryQualification (Available in API version 62.0 and later.) EvaluateDisqualification EvaluateQualification FormulaBasedPricing FormulaBasedRating (Available in API version 62.0 and later.) GetCustomerPromotionAttrValue (Available in API version 64.0 and later.) GetMemberAttributesValues GetMemberPartnerLinkageStatus GetMemberPointBalance GetMemberPromotions GetMemberTier GetOutputsFromDecisionMatrix GetOutputsFromDecisionTable GetUserData GroupingAndAggregatePricing GroupingAndAggregateRating (Available in API version 62.0 and later.) IncreaseUsageForCumulativePromotion IntegrationOrchestration InterNodeDataCopy IssueExtendedReward (Available in API version 64.0 and later.) IssueVoucher ListGroup ListGroupCalculation ListPrice ManualDiscount ManualRatingDiscount (Available in API version 62.0 and later.) MapProduct MinimumPrice (Available in API version 62.0 and later.) MultiRecipientProductQualification (Available in API version 64.0 and later.) NegotiatedBaseRate (Available in API version 64.0 and later.) NegotiatedRateCardEntryResolution (Available in API version 64.0 and later.) NegotiatedTierAdjustment (Available in API version 64.0 and later.) NegotiatedVolumeAdjustment (Available in API version 64.0 and later.) PredictiveAI PriceAdjustmentMatrix PriceGuidance (Available in API version 64.0 and later.) PriceRevision (Available in API version 65.0 and later.) PricingPropagation (Available in API version 65.0 and later.) PricingSettings PromotionExecution (Available in API version 65.0 and later.) PromotionsDiscount Proration RateAdjustmentByAttributeResolution (Available in API version 62.0 and later.) RateAdjustmentByTierResolution (Available in API version 62.0 and later.) RateAdjustmentMatrix (Available in API version 62.0 and later.) RateAssignment (Available in API version 62.0 and later.) RateCardEntryResolution (Available in API version 62.0 and later.) RateCardResolution (Available in API version 62.0 and later.) RatingAttributeDiscount RatingBreakdownLineMapping (Available in API version 65.0 and later.) RatingRoundingValues (Available in API version 62.0 and later.) RatingSetting RatingTierDiscount RatingVolumeDiscount RecordAction RecordAlert RedeemVoucher RoundingValues RuleFetch RunFlow RunProgramProcess SampleBusinessElementWithContext SampleCustomElementWithExpressionAndListFilter SampleDynamicCustomElement SampleJavaBasedTaxCalculatorCustomElement SampleTaxCalculatorCustomElement SendMail StopPricing StopRating (Available in API version 62.0 and later.) SubscriptionPricing TermGpaCalculation (Available in API version 64.0 and later.) TermGpaReporting (Available in API version 64.0 and later.) TestCustomElement UpdateCurrentValueForMemberAttribute UpdateCustomerPromotionAttrValue (Available in API version 64.0 and later.) UpdatePointBalance UpdateUsageForCumulativePromotion UpsertRecord (Available in API version 64.0 and later.) VolumeDiscount VolumeTierDiscount",
         "Field Name": "actionType",
         "Field Type": "BusinessKnowledgeModel (enumeration of type string)"
       },
@@ -20329,13 +20519,18 @@
       },
       {
         "Description": "The explainability message template that’s used when the result type of a condition step in an expression set is Failed.",
-        "Field Name": "failedExplainerTemplate",
+        "Field Name": "failed​ExplainerTemplate",
         "Field Type": "string"
       },
       {
         "Description": "List of the token resource mappings of the failed explainability message template. Valid values are: expressionSetMessageToken resourceReference Available in API version 59.0 and later.",
-        "Field Name": "failedMessageTokenMappings",
+        "Field Name": "failedMessage​TokenMappings",
         "Field Type": "ExplainabilityMessageTemplateTokenMapping (enumeration of type string)"
+      },
+      {
+        "Description": "Indicates whether the step has nested explainability ( ) or not ( ). Available in API version 67.0 and later.",
+        "Field Name": "hasNested​Explainability",
+        "Field Type": "boolean"
       },
       {
         "Description": "Required. The UI label of an expression set definition version step.",
@@ -20349,12 +20544,12 @@
       },
       {
         "Description": "The explainability message template that’s used when the result type of a condition step in an expression set is No Result. Available in API version 59.0 and later.",
-        "Field Name": "noResultExplainerTemplate",
+        "Field Name": "noResult​ExplainerTemplate",
         "Field Type": "string"
       },
       {
         "Description": "List of the token resource mappings of the no result explainability message template. Valid values are: expressionSetMessageToken resourceReference Available in API version 59.0 and later.",
-        "Field Name": "noResultMessageTokenMappings",
+        "Field Name": "noResultMessage​TokenMappings",
         "Field Type": "ExplainabilityMessageTemplateTokenMapping (enumeration of type string)"
       },
       {
@@ -20364,12 +20559,12 @@
       },
       {
         "Description": "The explainability message template that’s used when the result type of a condition step in an expression set is Passed.",
-        "Field Name": "passedExplainerTemplate",
+        "Field Name": "passedExplainer​Template",
         "Field Type": "string"
       },
       {
         "Description": "List of the token resource mappings of the passed explainability message template. Valid values are: expressionSetMessageToken resourceReference Available in API version 59.0 and later.",
-        "Field Name": "passedMessageTokenMappings",
+        "Field Name": "passedMessage​TokenMappings",
         "Field Type": "ExplainabilityMessageTemplateTokenMapping (enumeration of type string)"
       },
       {
@@ -20398,7 +20593,7 @@
         "Field Type": "boolean"
       },
       {
-        "Description": "Required. Specifies the type of step in an expression set definition version. Valid values are: AdvancedCondition Branch BusinessKnowledgeModel Condition DefaultPath SubExpression",
+        "Description": "Required. Specifies the type of step in an expression set definition version. Valid values are: AdvancedCondition AdvancedListFilter (Available in API version 67.0 and later). Branch BusinessKnowledgeModel Condition DefaultPath ListFilter (Available in API version 67.0 and later). ListGroup (Available in API version 67.0 and later). SubExpression",
         "Field Name": "stepType",
         "Field Type": "ExpsSetStepType (enumeration of type string)"
       },
@@ -20648,7 +20843,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Represents an array of fields in an object that is used as a variable in an expression set.",
+        "Description": "Represents an array of fields in an object that's used as a variable in an expression set.",
         "Field Name": "fields",
         "Field Type": "ExpressionSetVariableField []"
       },
@@ -20715,7 +20910,7 @@
         "Field Type": "int"
       },
       {
-        "Description": "Represents an array of fields in an object that is used as a variable in an expression set.",
+        "Description": "Represents an array of fields in an object that's used as a variable in an expression set.",
         "Field Name": "fields",
         "Field Type": "ExpressionSetVariableField []"
       },
@@ -20740,7 +20935,7 @@
         "Field Type": "string"
       }
     ],
-    "short_description": "Represents a definition of a field in an object that is used as a variable in an expression set.",
+    "short_description": "Represents a definition of a field in an object that's used as a variable in an expression set.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_expressionsetdefinition.htm",
     "parent": "Metadata"
   },
@@ -20996,7 +21191,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Required. The type of external credential parameter. The value of this field drives the behavior of the parameter. Valid values are: AdditionalRefreshStatusCode: Allows the user to specify 4xx, 6xx, 7xx, 8xx, and 9xx HTTP status codes that trigger Salesforce to refresh expired or invalid access tokens, in addition to the standard 401 HTTP status code response. AuthHeader: Allows the user to specify custom authentication headers to be added to the callout at run time. When using AuthHeader, the parameterName field must be the header name as a string, and parameterValue must be a formula of a header value that is evaluated at run time. sequenceNumber determines the order in which headers are sent out in the callout. Headers with lower numbers are sent out first. AuthParameter: Allows the user to add additional authentication settings. parameterName defines the parameter to set. For example, AwsRegion sets the AWS Region parameter to apply for an AWS Signature V4 authentication protocol and parameterValue is the value for the AWS Region. AuthProtocolVariant: Used to specify a variant of an authentication protocol. For example, Aws Sts as a variant when the ParameterName is AwsSv4 and the ParameterValue is AwsSv4_STS. AuthProvider: Specifies that this parameter configures an authentication provider referenced by the authProvider field. AuthProviderUrl: Specifies the authentication endpoint URL. For example, if the authentication type is OAuth with JWT Bearer Flow, then parameterValue is an authentication token endpoint. AuthProviderUrlQueryParameter: Allows the user to specify custom query parameters to be added to the callout to the authentication provider at run time. Currently, supported only for AWS Signature V4 with STS. The allowed AuthProviderUrlQueryParameter values are AwsExternalId and AwsDuration, used with AWS STS. AwsStsPrincipal: Configures AWS Signature V4 along with STS. parameterName is AwsStsPrincipal and parameterValue isn’t specified. CreatedByNamespace: Reserved for internal use. ExternalAuthIdentityProvider: Specifies that this parameter configures an authentication provider referenced by the externalAuthIdentityProvider field. GlobalNamedPrincipal: Reserved for internal use. JwtBodyClaim: Specifies a JWT (JSON Web Token) body claim, where parameterName is the key and parameterValue is the value. For example, the parameter name for a JWT audience is aud. JwtHeaderClaim: Specifies a JWT header claim, where parameterName is the key and parameterValue is the value. For example, the parameter name for a JWT key identifier is kid. ManagedByComponent: Reserved for internal use. ManagedByFeature: Reserved for internal use. NamedPrincipal: Specifies that the parameter uses the same set of user credentials for all users who access the external system. PerUserPrincipal: Provides access control at the individual user level. SfHttpRequestExtensionName: Reserved for internal use. SigningCertificate: Specifies the certificate used for an authentication signature. Use the certificate field to specify the certificate name. Used for OAuth with JWT Bearer Flow and AwsSv4 STS with RolesAnywhere authentication. SystemUserPrincipal: Reserved for internal use.",
+        "Description": "Required. The type of external credential parameter. The value of this field drives the behavior of the parameter. Valid values are: AdditionalRefreshStatusCode: Allows the user to specify 4xx, 6xx, 7xx, 8xx, and 9xx HTTP status codes that trigger Salesforce to refresh expired or invalid access tokens, in addition to the standard 401 HTTP status code response. AuthHeader: Allows the user to specify custom authentication headers to be added to the callout at run time. When using AuthHeader, the parameterName field must be the header name as a string, and parameterValue must be a formula of a header value that is evaluated at run time. sequenceNumber determines the order in which headers are sent out in the callout. Headers with lower numbers are sent out first. AuthParameter: Allows the user to add additional authentication settings. parameterName defines the parameter to set. For example, AwsRegion sets the AWS Region parameter to apply for an AWS Signature V4 authentication protocol and parameterValue is the value for the AWS Region. AuthProtocolVariant: Used to specify a variant of an authentication protocol. For example, Aws Sts as a variant when the ParameterName is AwsSv4 and the ParameterValue is AwsSv4_STS. AuthProvider: Specifies that this parameter configures an authentication provider referenced by the authProvider field. AuthProviderUrl: Specifies the authentication endpoint URL. For example, if the authentication type is OAuth with JWT Bearer Flow, then parameterValue is an authentication token endpoint. AuthProviderUrlQueryParameter: Allows the user to specify custom query parameters to be added to the callout to the authentication provider at run time. Currently, supported only for AWS Signature V4 with STS. The allowed AuthProviderUrlQueryParameter values are AwsExternalId and AwsDuration, used with AWS STS. AwsStsPrincipal: Configures AWS Signature V4 along with STS. parameterName is AwsStsPrincipal and parameterValue isn’t specified. CreatedByNamespace: Reserved for internal use. CustomPrincipal: Reserved for internal use. ExternalAuthIdentityProvider: Specifies that this parameter configures an authentication provider referenced by the externalAuthIdentityProvider field. GlobalNamedPrincipal: Reserved for internal use. JwtBodyClaim: Specifies a JWT (JSON Web Token) body claim, where parameterName is the key and parameterValue is the value. For example, the parameter name for a JWT audience is aud. JwtHeaderClaim: Specifies a JWT header claim, where parameterName is the key and parameterValue is the value. For example, the parameter name for a JWT key identifier is kid. ManagedByComponent: Reserved for internal use. ManagedByFeature: Reserved for internal use. NamedPrincipal: Specifies that the parameter uses the same set of user credentials for all users who access the external system. PerUserPrincipal: Provides access control at the individual user level. PrincipalIdentityAlias: Reserved for internal use. SfHttpRequestExtensionName: Reserved for internal use. SigningCertificate: Specifies the certificate used for an authentication signature. Use the certificate field to specify the certificate name. Used for OAuth with JWT Bearer Flow and AwsSv4 STS with RolesAnywhere authentication. SystemUserPrincipal: Reserved for internal use.",
         "Field Name": "parameterType",
         "Field Type": "ExternalCredentialParamType (enumeration of type string)"
       },
@@ -21100,7 +21295,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Indicates the source of the API specification registered with the External Services wizard. Valid values include: AgentActionOutputs—Reserved for internal use. AgentToAgent—The API specification represents the external service schemas that enable communication between AI agents. Available in API version 66.0 and later. Anypoint—The API specification is managed in the MuleSoft Anypoint Platform. Available in API version 63.0 and later. ApexRest—The API specification was created from an Apex REST class. Available in API version 63.0 and later. AuraEnabled—The API specification was created from an Apex class that has AuraEnabled methods. Available in API version 65.0 and later. ContextDef—The API specification used to create dynamic Apex classes for the related context definition structure. Available in API version 66.0 and later. Custom—The API specification was manually configured. CustomExternalConnector—The API specification represents a custom partner-created version of an external connection. Available in API version 66.0 and later. DocumentProcessing—Reserved for internal use. ExternalConnector—The API specification represents an external connection. Heroku—The API specification represents a Heroku app. MuleSoft—The API specification was selected from MuleSoft. Use Anypoint for MuleSoft for Agentforce: API Catalog MuleSoft sources. NamedQuery—The API specification represents a named query REST endpoint. Available in API version 64.0 and later. SchemaInferred—The API specification was provided during the HTTP Callout configuration process. Available in API version 57.0 and later. Standard—The API specification was defined when an external service was created.",
+        "Description": "Indicates the source of the API specification registered with the External Services wizard. Valid values include: AgentActionOutputs—Reserved for internal use. AgentToAgent—The API specification represents the external service schemas that enable communication between AI agents. Available in API version 66.0 and later. Anypoint—The API specification is managed in the MuleSoft Anypoint Platform. Available in API version 63.0 and later. AnypointPublic—Reserved for internal use. ApexRest—The API specification was created from an Apex REST class. Available in API version 63.0 and later. AuraEnabled—The API specification was created from an Apex class that has AuraEnabled methods. Available in API version 65.0 and later. CodeExtension—Reserved for internal use. ContextDef—The API specification used to create dynamic Apex classes for the related context definition structure. Available in API version 66.0 and later. Custom—The API specification was manually configured. CustomExternalConnector—The API specification represents a custom partner-created version of an external connection. Available in API version 66.0 and later. DocumentProcessing—Reserved for internal use. ExternalConnector—The API specification represents an external connection. Heroku—The API specification represents a Heroku app. MuleSoft—The API specification was selected from MuleSoft. Use Anypoint for MuleSoft for Agentforce: API Catalog MuleSoft sources. NamedQuery—The API specification represents a named query REST endpoint. Available in API version 64.0 and later. SchemaInferred—The API specification was provided during the HTTP Callout configuration process. Available in API version 57.0 and later. Standard—The API specification was defined when an external service was created.",
         "Field Name": "registrationProviderType",
         "Field Type": "ExternalServiceRegistrationProviderType (enumeration of type string)"
       },
@@ -21115,7 +21310,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "The schema format. OpenAPI for Open API 2.0.x or Open API 3.0.x. If not specified, schema type is derived based on the schema content. Nillable.",
+        "Description": "The schema format. OpenAPI for OpenAPI 2.0.x or OpenAPI 3.0.x. If not specified, the schema type is derived based on the schema content. Nillable.",
         "Field Name": "schemaType",
         "Field Type": "string"
       },
@@ -21150,7 +21345,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "The internal version of External Services that is used to register the API specification. Available in API version 55.0 and later. The system versions are independent of API versions. 1—Retired legacy External Services. 2—External Services with limitations on object and operation name length. 3—External Services automatically derives developer names fitting within 80 characters. 4—Removed the default character set when making a callout to an external service. To specify a character set, include it in the OpenAPI specification, for example: contentType: application/xml; charset=utf-8. 5—Introduced asynchronous callouts with callbacks from Apex. 6—Added support for OpenAPI Specification (OAS) discriminator mapping. 7—Added support for property names that begin with a number. For input parameters on invocable actions, encodes the keyword connection as reconnection. 8—Current version. This field is read-only. You can’t upgrade an external service to a newer system version. To take advantage of functionality in a newer system version, you must create an external service using the same OpenAPI spec and then replace any references to the old external service. See Register an External Service in Salesforce Help.",
+        "Description": "The internal version of External Services that is used to register the API specification. Available in API version 55.0 and later. The system versions are independent of API versions. 1—Retired legacy External Services. 2—External Services with limitations on object and operation name length. 3—External Services automatically derives developer names fitting within 80 characters. 4—Removed the default character set when making a callout to an external service. To specify a character set, include it in the OpenAPI specification, for example: contentType: application/xml; charset=utf-8. 5—Introduced asynchronous callouts with callbacks from Apex. 6—Added support for OpenAPI Specification (OAS) discriminator mapping. 7—Added support for property names that begin with a number. For input parameters on invocable actions, encodes the keyword connection as reconnection. 8—Internal changes. 9—Current version. Added support for enums in the OpenAPI spec. This field is read-only. You can’t upgrade an external service to a newer system version. To take advantage of functionality in a newer system version, you must create an external service by using the same OpenAPI spec and then replace any references to the old external service. See Register an External Service in Salesforce Help.",
         "Field Name": "systemVersion",
         "Field Type": "int"
       }
@@ -23028,7 +23223,7 @@
   "FlowActionCallOutputParameter": {
     "fields": [
       {
-        "Description": "Required. Specifies the variable to which you want to assign the output parameter value.",
+        "Description": "Required. Specifies the variable that you want to assign the target output value to.",
         "Field Name": "assignToReference",
         "Field Type": "string"
       },
@@ -23111,7 +23306,7 @@
   "FlowApexPluginCallOutputParameter": {
     "fields": [
       {
-        "Description": "Required. Specifies the variable to which you want to assign the output parameter value.",
+        "Description": "Required. Specifies the variable that you want to assign the target output value to.",
         "Field Name": "assignToReference",
         "Field Type": "string"
       },
@@ -23145,7 +23340,7 @@
   "FlowAssignmentItem": {
     "fields": [
       {
-        "Description": "Reference to the variable to which you want to apply the specified operator.",
+        "Description": "Specifies the variable that you want to assign the target output value to.",
         "Field Name": "assignToReference",
         "Field Type": "string"
       },
@@ -25031,6 +25226,11 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether an approval step assigned to a group requires all group members to approve. Valid values are: 0—A single group member, queue member, or delegate approves or rejects the approval work item, which approves or rejects the approval step. 100—All group members or their delegates approve their child approval work items to approve the step. If any group member or delegate rejects their child approval work item, the approval step is rejected. This field is available in API version 67.0 and later.",
+        "Field Name": "requiresMultiMemberApproval",
+        "Field Type": "string"
+      },
+      {
         "Description": "Reserved for future use.",
         "Field Name": "shouldLock",
         "Field Type": "boolean"
@@ -25222,7 +25422,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "The type of the automation event that triggers the automation event-triggered flow. Valid values are: exploreConversation—Available in API version 61.0 and later. externalEvent processWebStoreUserRgstr trgrOnCustomEvent—Available in API version 64.0 and later. trgrOnEmailBounceEngagement trgrOnEmailLinkClickEngagement trgrOnEmailOpenEngagement trgrOnEmailSubscription trgrOnFormSubmission trgrOnOrderPlacement trgrOnReferralEventSubmission—Available in API version 65.0 and later. trgrOnSmsDeliveryFailureEngagement trgrOnSmsLinkClickEngagement trgrOnSmsResponseEngagement trgrOnSmsSubscription trgOnVoucherStsChgOtbdEngmt—Available in API version 65.0 and later. trgrOnWebCartAbandoned trgrOnWhatsAppDeliveredEngagement trgrOnWhatsAppDlvrFailureEngmt trgrOnWhatsAppLinkClickEngmt trgrOnWhatsAppReadEngagement trgrOnWhatsAppResponseEngmt trgrOnWhatsAppSubscription",
+        "Description": "The type of the automation event that triggers the automation event-triggered flow. Valid values are: exploreConversation—Available in API version 61.0 and later. externalEvent processWebStoreUserRgstr trgrOnB2cCartAbandoned trgrOnCustomEvent—Available in API version 64.0 and later. trgrOnEmailBounceEngagement trgrOnEmailLinkClickEngagement trgrOnEmailOpenEngagement trgrOnEmailSubscription trgrOnFormSubmission trgrOnOrderPlacement trgrOnPostOrdMktCmpnEngagement trgrOnReferralEventSubmission—Available in API version 65.0 and later. trgrOnSmsDeliveryFailureEngagement trgrOnSmsLinkClickEngagement trgrOnSmsResponseEngagement trgrOnSmsSubscription trgOnVoucherStsChgOtbdEngmt—Available in API version 65.0 and later. trgrOnWebCartAbandoned trgrOnWhatsAppDeliveredEngagement trgrOnWhatsAppDlvrFailureEngmt trgrOnWhatsAppLinkClickEngmt trgrOnWhatsAppReadEngagement trgrOnWhatsAppResponseEngmt trgrOnWhatsAppSubscription",
         "Field Name": "eventType",
         "Field Type": "InvocableActionType (enumeration of type string)"
       },
@@ -25786,7 +25986,7 @@
         "Field Type": "FlowWaitEventInputParameter[]"
       },
       {
-        "Description": "Specifies what type of event can resume the flow. Possible values are: SmsResponse—An SMS response event WhatsappResponse—A WhatsApp response event This field is available in API version 62.0 and later.",
+        "Description": "Specifies what type of event can resume the flow. Possible values are: RcsResponse—An RCS response event. This value is available in API version 67.0 and later. SmsResponse—An SMS response event WhatsappResponse—A WhatsApp response event This field is available in API version 62.0 and later.",
         "Field Name": "interactionType",
         "Field Type": "FlowWaitInteractionType (enumeration of type string)"
       },
@@ -26184,8 +26384,61 @@
     "parent": "Metadata"
   },
   "FlowValueMap": {
-    "fields": [],
-    "short_description": "Reserved for future use.",
+    "fields": [
+      {
+        "Description": "Specifies the default target value used when no source value is found in the value map. A value is required if the defaultValueStrategy field is set to FixedValue.",
+        "Field Name": "defaultValue",
+        "Field Type": "text"
+      },
+      {
+        "Description": "Required. Specifies the strategy used to apply the default target value if the source value is not found in the value map. Valid values are: PassThrough: Pass the original source value through if no mapping is found. FixedValue: Use the defined DefaultValue if no mapping is found. FailFlow: Fail the flow if no mapping is found.",
+        "Field Name": "defaultValueStrategy",
+        "Field Type": "FlowValueMapDefaultStrategy (enumeration of type string)"
+      },
+      {
+        "Description": "User-provided description for the value map.",
+        "Field Name": "description",
+        "Field Type": "text"
+      },
+      {
+        "Description": "Required. Label for the value map.",
+        "Field Name": "label",
+        "Field Type": "text"
+      },
+      {
+        "Description": "Required. Specifies the supported data types for value map source data. Valid types are: Boolean Date DateTime Number String",
+        "Field Name": "sourceType",
+        "Field Type": "FlowValueMapDataType (enumeration of type string)"
+      },
+      {
+        "Description": "Required. Specifies the supported data types for value map target data. Valid types are: Boolean Date DateTime Number String",
+        "Field Name": "targetType",
+        "Field Type": "FlowValueMapDataType (enumeration of type string)"
+      },
+      {
+        "Description": "List of source-target mappings in the value map.",
+        "Field Name": "valueMapEntries",
+        "Field Type": "FlowValueMapEntry[]"
+      }
+    ],
+    "short_description": "Represents the metadata associated with creating a reusable entity for defining and managing mappings between source and target values used within a flow.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flowvaluemap.htm",
+    "parent": "Metadata"
+  },
+  "FlowValueMapEntry": {
+    "fields": [
+      {
+        "Description": "Required. Specifies the source value in this FlowValueMap definition.",
+        "Field Name": "sourceValue",
+        "Field Type": "text"
+      },
+      {
+        "Description": "Required. Specifies the target value in this FlowValueMap definition.",
+        "Field Name": "targetValue",
+        "Field Type": "text"
+      }
+    ],
+    "short_description": "Stores an individual record linking a specific source value to a target value. This entity maintains a relationship to its parent FlowValueMap definition and makes sure that each sourceValue is unique within that parent definition.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flowvaluemap.htm",
     "parent": "Metadata"
   },
@@ -27869,7 +28122,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Indicates whether records shared with users in this group are also shared with users higher in the role hierarchy (true) or not (false). This field is only available for public groups. This field corresponds to the Grant Access Using Hierarchies checkbox in Setup.",
+        "Description": "Required. Indicates whether records shared with users in this group are also shared with users higher in the role hierarchy (true) or not (false). This field corresponds to the Grant Access Using Hierarchies checkbox on the group’s detail page. Available in API version 18.0 and later.",
         "Field Name": "doesIncludeBosses",
         "Field Type": "boolean"
       },
@@ -28280,6 +28533,33 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_industriesunifiedinventorysettings.htm",
     "parent": "Metadata"
   },
+  "InsPlcyLimitConsumptionRule": {
+    "fields": [
+      {
+        "Description": "Required. Specifies how the nested limits in the insurance policy are consumed when a claim is paid out. Valid value is: Full",
+        "Field Name": "consumptionMode",
+        "Field Type": "PolicyLimitConsumptionMode (enumeration of type string)"
+      },
+      {
+        "Description": "Indicates whether the policy limit consumption configuration is enabled (true) or not (false). The default value is false.",
+        "Field Name": "isEnabled",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Required. A user-friendly name for InsPlcyLimitConsumptionRule, which is defined when the InsPlcyLimitConsumptionRule is created.",
+        "Field Name": "masterLabel",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. ID of the root product for the insurance policy that this configuration applies to.",
+        "Field Name": "policyProduct",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents configuration for how policy limit consumption rule applies to an insurance policy product, including consumption mode and product binding.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_insplcyLimitconsumptionrule.htm",
+    "parent": "Metadata"
+  },
   "InstalledPackage": {
     "fields": [
       {
@@ -28561,7 +28841,7 @@
         "Field Type": "InvocableActionExtAttributeDataType (enumeration of type string)"
       },
       {
-        "Description": "Required. The key field that specifies which standard attribute to provide a value for, or provides a custom key. The available standard keys are: Order GroupName ControllingField For a custom key, enter any value that contains letters, numbers, or single underscores, starts with a letter, and ends with __c.",
+        "Description": "Required. The key field that specifies which standard attribute to provide a value for, or provides a custom key. The available standard keys are: CpeName—Assigns a Lightning web component as a partial custom property editor for a primary input parameter in the action's property panel in Flow Builder. ConfiguredBy—Links an input parameter to be controlled by another parameter's custom property editor in the action's property panel in Flow Builder. ControllingField—Controls the visibility of an input parameter based on another input parameter's existence in the action's property panel in Flow Builder. CustomHeaderLwcName—Adds a custom header at the top of the action's property panel in Flow Builder. GroupName—Organizes input parameters into collapsible sections in the action's property panel in Flow Builder. Order—Controls the vertical display sequence of input parameters in the action's property panel in Flow Builder. ProvidedValueList—Defines picklist values for an input parameter in the action's property panel in Flow Builder. For a custom key, enter any value that contains letters, numbers, or single underscores, starts with a letter, and ends with __c. This field is available in API version 67.0 and later.",
         "Field Name": "key",
         "Field Type": "string"
       },
@@ -29555,8 +29835,8 @@
   "LightningComponentBundle": {
     "fields": [
       {
-        "Description": "An internal AI description of the Lightning web component. This description is supported only in orgs that have Setup with Agentforce (Beta) enabled. This description enables Agentforce to analyze the component for inclusion in agent-generated Lightning pages. For more information, see Configure a Component for Use in Setup with Agentforce (Beta). Available in API version 66.0 and later.",
-        "Field Name": "ai (Beta)",
+        "Description": "An internal AI description of the Lightning web component. This description is supported only in orgs that have Setup with Agentforce enabled. This description enables Agentforce to analyze the component for inclusion in agent-generated Lightning pages. For more information, see Configure a Component for Use in Setup with Agentforce. Available in API version 66.0 and later.",
+        "Field Name": "ai",
         "Field Type": "base64Binary"
       },
       {
@@ -31093,7 +31373,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Required. Values are: AppleMessagesForBusiness—Apple Messages for Business. Available in API version 65.0 and later. Custom—Bring Your Own Channel for Messaging or Bring Your Own Channel for CCaaS. Available in API version 61.0 and later. EmbeddedMessaging—Enhanced Chat. Facebook—Facebook Messenger. Available in API version 65.0 and later. Line—Line. Available in API version 65.0 and later. PstnVoice—Agentforce Voice (PSTN). Available in API version 65.0 and later. Text—SMS. Available in API version 65.0 and later. Voice—Service Cloud Voice. Available in API version 58.0 and later. WhatsApp—WhatsApp. Available in API version 65.0 and later. WhatsAppVoice—Available in API version 65.0 and later. Third-party Messaging channels in Salesforce, such as WhatsApp and Facebook Messenger, don’t use this metadata type.",
+        "Description": "Required. Values are: AppleMessagesForBusiness—Apple Messages for Business. Available in API version 65.0 and later. Custom—Bring Your Own Channel for Messaging or Bring Your Own Channel for CCaaS. Available in API version 61.0 and later. EmbeddedMessaging—Enhanced Chat. Facebook—Facebook Messenger. Available in API version 65.0 and later. Line—Line. Available in API version 65.0 and later. PstnVoice—Agentforce Voice (PSTN). Available in API version 65.0 and later. Text—SMS. Available in API version 65.0 and later. SipVoice—Represents an Agentforce Voice channel that uses SIP. Available in API version 65.0 and later. Voice—Service Cloud Voice. Available in API version 58.0 and later. WhatsApp—WhatsApp. Available in API version 65.0 and later. WhatsAppVoice—Available in API version 65.0 and later. Third-party Messaging channels in Salesforce, such as WhatsApp and Facebook Messenger, don’t use this metadata type.",
         "Field Name": "messagingChannelType",
         "Field Type": "MessagingChannelType (enumeration of type string)"
       },
@@ -32600,6 +32880,11 @@
         "Field Type": "string"
       },
       {
+        "Description": "Determines whether private pages in an LWR site are available to users who haven’t completed setting up or resetting their password. Set to (true) by default for all LWR sites except those that use custom Visualforce password-management pages.When set to (true), private pages are unavailable until password setup or reset is complete. In LWR sites that use custom Visualforce pages for password management, make these pages public. Otherwise, visitors can’t access them to set up or reset their password. Available in API version 67.0 and later.",
+        "Field Name": "disablePvtPagesForPwdResetInLWR",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "When reputation levels are enabled for the site, determines whether to exclude contributions to records when counting points toward reputation levels. Available in API version 41.0 and later.",
         "Field Name": "disableReputationRecord​Conversations",
         "Field Type": "boolean"
@@ -33536,7 +33821,7 @@
   "AppSettings": {
     "fields": [
       {
-        "Description": "Required. Specifies the API name of a connected app. If a connected app was installed with a managed package, it includes the namespace prefix.Retrieve NotificationTypeConfig to see the API names of the connected apps supported for a notification type.",
+        "Description": "Required. Specifies the API name of a connected app. If a connected app is installed with a managed package, it includes the namespace prefix.Retrieve NotificationTypeConfig to see the API names of the connected apps supported for a notification type.",
         "Field Name": "connectedAppName",
         "Field Type": "string"
       },
@@ -33989,10 +34274,229 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_ocrtemplate.htm",
     "parent": "Metadata"
   },
-  "Industries Common Resources": {
-    "fields": [],
-    "short_description": "Certain feature sets are shared across industries. This guide contains developer documentation to help you put those features to work.",
+  "OmniSupervisorConfig": {
+    "fields": [
+      {
+        "Description": "Required. If set to true, hides the agent timeline from the supervisors assigned to this supervisor configuration. The default value is false.",
+        "Field Name": "isTimelineHidden",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Required. A unique label for the supervisor configuration. The name must begin with a letter and can contain alphanumeric characters and underscores. It can’t contain spaces, two consecutive underscores, or end with an underscore. The name appears as Omni Supervisor Configuration Name in the UI.",
+        "Field Name": "masterLabel",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Represents AI agent bots that are visible to supervisors in this configuration. This field is available in API version 64.0 and later.",
+        "Field Name": "omniSpvsrConfigAIAgent",
+        "Field Type": "OmniSpvsrConfigAIAgent[]"
+      },
+      {
+        "Description": "Represents the actions available to the supervisors of this Omni-Channel supervisor configuration.",
+        "Field Name": "omniSupervisorConfigAction",
+        "Field Type": "OmniSupervisorConfigAction[]"
+      },
+      {
+        "Description": "Represents the group of agents who are visible to the supervisors of an Omni-Channel supervisor configuration. The group, if visible, appears in the Agents tab of Omni Supervisor.",
+        "Field Name": "omniSupervisorConfigGroup",
+        "Field Type": "OmniSupervisorConfigGroup[]"
+      },
+      {
+        "Description": "Represents the supervisor profiles to which an Omni-Channel supervisor configuration applies. User-level configurations override profile-level configurations.",
+        "Field Name": "omniSupervisorConfigProfile",
+        "Field Type": "OmniSupervisorConfigProfile[]"
+      },
+      {
+        "Description": "Represents the queues that are visible to the supervisors of an Omni-Channel supervisor configuration. The queue, if visible, appears in the Queues Backlog and Assigned Work tabs of Omni Supervisor.",
+        "Field Name": "omniSupervisorConfigQueue",
+        "Field Type": "OmniSupervisorConfigQueue[]"
+      },
+      {
+        "Description": "Represents the skills that are visible to the supervisors of an Omni-Channel supervisor configuration. These skills, if visible, appear in the Skills Backlog tab of Omni Supervisor.",
+        "Field Name": "omniSupervisorConfigSkill",
+        "Field Type": "OmniSupervisorConfigSkill[]"
+      },
+      {
+        "Description": "Represents the visible tabs specified in an Omni Supervisor configuration. This object is available in API version 60.0 and later.",
+        "Field Name": "omniSupervisorConfigTab",
+        "Field Type": "OmniSupervisorConfigTab[]"
+      },
+      {
+        "Description": "Represents the supervisor to which the Omni-Channel supervisor configuration applies. User-level configurations override profile-level configurations. This object is available in API version 64.0 and later.",
+        "Field Name": "omniSupervisorConfigUser",
+        "Field Type": "OmniSupervisorConfigUser[]"
+      },
+      {
+        "Description": "Determines which work items based on skills are visible to the supervisors assigned to this supervisor configuration. Values are: AllSkills AnySkill",
+        "Field Name": "skillVisibility",
+        "Field Type": "OmniSuperSkillVisibilityType (enumeration of type string)"
+      }
+    ],
+    "short_description": "Represents the Omni-Channel supervisor configuration for an assigned group of supervisors.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSpvsrConfigAIAgent": {
+    "fields": [
+      {
+        "Description": "Required. The name of the bot definition that is visible to supervisors in this configuration.",
+        "Field Name": "botDefinition",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents AI agent bot definitions that are visible to supervisors in this configuration. This object is available in API version 64.0 and later.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigAction": {
+    "fields": [
+      {
+        "Description": "Required. An action that a supervisor can perform. Values are: AWSDashboard AssignLearning ChangeGroups ChangeQueues ChangeSkills CustomAction ManageQueues",
+        "Field Name": "actionName",
+        "Field Type": "OmniSupervisorActionName (enumeration of type string)"
+      },
+      {
+        "Description": "Required. The tab where the action appears. Values are: AgentDetails AllAgents AssignedWork AssignedWorkDetails QueueDetails QueuesBacklog SkillDetails SkillsBacklog",
+        "Field Name": "actionTab",
+        "Field Type": "OmniSupervisorActionTab (enumeration of type string)"
+      },
+      {
+        "Description": "A flow that performs a custom action.",
+        "Field Name": "customActionFlow",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The order in which the action is displayed.",
+        "Field Name": "displayOrder",
+        "Field Type": "int"
+      }
+    ],
+    "short_description": "Represents an action and associated tab, custom flow, and display order for supervisor actions in this configuration.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigGroup": {
+    "fields": [
+      {
+        "Description": "Required. The name of the group of agents.",
+        "Field Name": "group",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents the group of agents for the supervisors in this configuration.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigProfile": {
+    "fields": [
+      {
+        "Description": "Required. The profile name.",
+        "Field Name": "profile",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents a profile for the supervisors in this configuration.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigQueue": {
+    "fields": [
+      {
+        "Description": "Required. The queue name.",
+        "Field Name": "queue",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents a queue that’s visible to the supervisors in this configuration.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigSkill": {
+    "fields": [
+      {
+        "Description": "Required. The skill name.",
+        "Field Name": "skill",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents a skill that’s visible to supervisors in this configuration.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigTab": {
+    "fields": [
+      {
+        "Description": "The order in which tabs are displayed in Omni Supervisor.",
+        "Field Name": "displayOrder",
+        "Field Type": "int"
+      },
+      {
+        "Description": "The name of the FlexiPage added as a customized tab. Required when tabTypeis set to FlexipageType.",
+        "Field Name": "flexipage",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Tabs shown on the Omni Supervisor page. Possible values are: Agents — the Agents tab AssignedWork — the Assigned Work tab FlexipageType — A custom tab created using Lightning App Builder, with the omniSupervisorPageType value of the FlexiPage Type field QueuesBacklog — the Queues Backlog tab SkillsBacklog — the Skills Backlog tab Wallboard — the Wallboard tab",
+        "Field Name": "tabType",
+        "Field Type": "OmniSupervisorTabType (enumeration of type string)"
+      }
+    ],
+    "short_description": "Represents the visible tabs specified in an Omni Supervisor configuration. This object is available in API version 60.0 and later.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OmniSupervisorConfigUser": {
+    "fields": [
+      {
+        "Description": "Required. Represents the supervisor to which the Omni-Channel supervisor configuration applies.",
+        "Field Name": "user",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents the supervisor to which the Omni-Channel supervisor configuration applies. User-level configurations override profile-level configurations. This object is available in API version 64.0 and later.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnisupervisorconfig.htm",
+    "parent": "Metadata"
+  },
+  "OrchestrationPlanCtxMapping": {
+    "fields": [
+      {
+        "Description": "Required. ContextDefinition that the orchestration use case is based on.",
+        "Field Name": "context​Definition",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Name of the item-level node in the context definition. The item node represents the line items or child records of the root node, such as the items in an order.",
+        "Field Name": "contextItem​Node",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Name of the context mapping that maps the source object fields to the nodes in the context definition.",
+        "Field Name": "contextMapping",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Name of the root node in the context definition. The root node represents the parent record that the orchestration plan is generated for, such as an order.",
+        "Field Name": "context​RootNode",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. UI label for the orchestration plan context mapping.",
+        "Field Name": "label",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. API name of the object that the orchestration plan is generated for. The combination of objectName and orchestrationType must be unique.",
+        "Field Name": "objectName",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Type of orchestration plan that this context mapping applies to. Valid values are: Billing Fulfillment Generic IntegrationOrchestrator InsuranceRuleAction OrderFulfillment StageManagement",
+        "Field Name": "orchestration​Type",
+        "Field Type": "PlanUsageType (enumeration of type string)"
+      }
+    ],
+    "short_description": "Represents the context mapping that Dynamic Revenue Orchestrator (DRO) uses to generate and orchestrate a plan for an object, such as a non-sales transaction for billing or another generic business process.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_orchestrationplanctxmapping.htm",
     "parent": "Metadata"
   },
   "OutboundNetworkConnection": {
@@ -34459,6 +34963,11 @@
         "Field Type": "string"
       },
       {
+        "Description": "Indicates the enhanced summary access configuration for users assigned through a permission set. Available in API version 66.0 and later.",
+        "Field Name": "genComputingSummaryDefAccess",
+        "Field Type": "PermissionSetGenComputingSummaryDefAccess[]"
+      },
+      {
         "Description": "Indicates the objects that are accessible to a user assigned to this permission set, and the kind of access available (create, read, edit, delete, and so on). Available in API version 23.0 and later.",
         "Field Name": "objectPermissions",
         "Field Type": "PermissionSetObjectPermissions[]"
@@ -34512,6 +35021,23 @@
       }
     ],
     "short_description": "PermissionSetAgentAccess represents the agent access configuration for users assigned through a permission set.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm",
+    "parent": "Metadata"
+  },
+  "PermissionSetGenComputingSummaryDefAccess": {
+    "fields": [
+      {
+        "Description": "Required. Indicates whether the users assigned to this profile can access the enhanced summary configuration (true) or not (false).",
+        "Field Name": "configName",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Indicates whether the access configuration is enabled (true) or not (false).",
+        "Field Name": "enabled",
+        "Field Type": "boolean"
+      }
+    ],
+    "short_description": "PermissionSetGenComputingSummaryDefAccess represents the enhanced summary access configuration for users assigned through a permission set. Available in API version 66.0 and later.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm",
     "parent": "Metadata"
   },
@@ -35092,6 +35618,23 @@
     ],
     "short_description": "A field selected on PlatformEventChannelMember for Change Data Capture Enrichment. A non-empty enriched field is added to an update or delete change event even when not changed.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_platformeventchannelmember.htm",
+    "parent": "Metadata"
+  },
+  "PlatformEventMigration": {
+    "fields": [
+      {
+        "Description": "Required. The API name of the standard volume platform event that needs to be migrated to a high volume platform event.",
+        "Field Name": "eventObject",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The label for the PlatformEventMigration component.",
+        "Field Name": "masterLabel",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents configuration settings for a migration from standard volume platform events to high volume platform events.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_platformeventmigration.htm",
     "parent": "Metadata"
   },
   "PlatformEventSubscriberConfig": {
@@ -35735,6 +36278,11 @@
         "Field Type": "ProfileFlowAccess[]"
       },
       {
+        "Description": "Indicates enhanced summary access configuration for users assigned to this profile. Available in API version 66.0 and later.",
+        "Field Name": "genComputingSummaryDefAccess",
+        "Field Type": "ProfileGenComputingSummaryDefAccess[]"
+      },
+      {
         "Description": "The name can only contain characters, letters, and the underscore (_) character. The name must start with a letter, and can’t end with an underscore or contain two consecutive underscore characters.Inherited from the Metadata component, this field isn’t defined in the WSDL for this component. It must be specified when creating, updating, or deleting. See create() to see an example of this field specified for a call.",
         "Field Name": "fullName",
         "Field Type": "string"
@@ -36070,6 +36618,23 @@
       }
     ],
     "short_description": "ProfileFlowAccess represents which flows a profile grants access to. Available in API version 47.0 and later.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_profile.htm",
+    "parent": "Metadata"
+  },
+  "ProfileGenComputingSummaryDefAccess": {
+    "fields": [
+      {
+        "Description": "Required. The enhanced summary access configuration name given by the admin.",
+        "Field Name": "configName",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Indicates whether the configuration is enabled (true) or not (false).",
+        "Field Name": "enabled",
+        "Field Type": "boolean"
+      }
+    ],
+    "short_description": "ProfileGenComputingSummaryDefAccess represents the enhanced summary access configuration for users assigned through a profile. Available in API version 66.0 and later.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_profile.htm",
     "parent": "Metadata"
   },
@@ -36694,6 +37259,11 @@
   },
   "Queue": {
     "fields": [
+      {
+        "Description": "Required. Indicates whether records shared with users in this queue are also shared with users higher in the role hierarchy (true) or not (false). This field corresponds to the Grant Access Using Hierarchies checkbox on the queue’s detail page. Available in API version 67.0 and later.",
+        "Field Name": "doesIncludeBosses",
+        "Field Type": "boolean"
+      },
       {
         "Description": "Indicates whether emails are sent to queue members (true) or not (false) when a new record is added to the queue.",
         "Field Name": "doesSendEmailToMembers",
@@ -40083,7 +40653,7 @@
   "ServicePresenceStatus": {
     "fields": [
       {
-        "Description": "Represents the status that’s associated with a specific service channel.",
+        "Description": "Represents the service channels assigned to the presence status. If no service channels are included, the presence status is automatically marked as 'Away' (where IsAway is set to true.)",
         "Field Name": "channels",
         "Field Type": "ServiceChannelStatus"
       },
@@ -40105,7 +40675,7 @@
         "Field Type": "string"
       }
     ],
-    "short_description": "Represents the status that’s associated with a specific service channel.",
+    "short_description": "",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_servicepresencestatus.htm",
     "parent": "Metadata"
   },
@@ -40697,6 +41267,18 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_agentplatformsettings.htm",
     "parent": "Metadata"
   },
+  "AgentforceAccountManagementSettings": {
+    "fields": [
+      {
+        "Description": "Indicates whether Agentforce Account Management is enabled (true) or not (false).",
+        "Field Name": "enableAccountManagement",
+        "Field Type": "boolean"
+      }
+    ],
+    "short_description": "Represents an org’s Agentforce Account Management settings.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_agentforceaccountmanagementsettings.htm",
+    "parent": "Metadata"
+  },
   "AgentforceForDevelopersSettings": {
     "fields": [
       {
@@ -40832,6 +41414,11 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether CIO history reporting is enabled for Data 360 reports (true) or not (false). Available in API version 67.0 or later.",
+        "Field Name": "enable​Cio​History​Reporting​Pref",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "Indicates whether access to creating dataflows is available in Salesforce (true) or not (false). Available in API version 55.0 and later.",
         "Field Name": "enable​Create​Legacy​Dataflows",
         "Field Type": "boolean"
@@ -40842,8 +41429,18 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether CRM Analtyics subscriptions are available in Experience Cloud (true) or not (false). Available in API version 67.0 and later.",
+        "Field Name": "enable​Crma​Subs​For​Exp​Cloud",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "Indicates whether the enhanced custom report type setup pages is enabled in Salesforce (true) or not (false). Available in API version 64.0 and later.",
         "Field Name": "enable​Crt​Setup​Lightning​UiPref",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether currency fields are enabled for Data 360 reports (true) or not (false). Available in API version 67.0 or later.",
+        "Field Name": "enable​Currency​Support​In​DCR​Pref",
         "Field Type": "boolean"
       },
       {
@@ -40887,6 +41484,11 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether dimenional hierarchy is enabled for Data 360 reports (true) or not (false). Available in API version 67.0 or later.",
+        "Field Name": "enable​Dimensional​Hierarchy​In​DCR​Pref",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "Indicates whether this org allows Classic reports and dashboards to be sent to Portal Users (true) or not (false). Available in API version 47.0 and later.",
         "Field Name": "enable​Email​Reports​To​Portal​Users",
         "Field Type": "boolean"
@@ -40919,6 +41521,11 @@
       {
         "Description": "Indicates whether CRM Analytics for Public Cloud is enabled in Salesforce (true) or not (false). Available in API version 58.0 and later.",
         "Field Name": "enable​Insights​HC​Mode",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether joined reports are enabled for Data 360 reports (true) or not (false). Available in API version 67.0 or later.",
+        "Field Name": "enable​Joined​Report​In​DCR​Pref",
         "Field Type": "boolean"
       },
       {
@@ -44955,6 +45562,11 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether the capability to process traceable transactions asynchronously is enabled (true) or disabled (false) for your org. The default value is false. This field is available in API version 67.0 or later.",
+        "Field Name": "enableProcessTraceableTrxnAsync",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "Indicates whether the capability, which allows Promotion Setup processes and rules to be deployed to target orgs in the same status as the source orgs when using the LoyaltyProgramSetup metadata type, is enabled (true) or disabled (false). The default value is false. This field is available in API version 62.0 or later.",
         "Field Name": "enablePromSetupProcRuleStatusInheritDplymt",
         "Field Type": "boolean"
@@ -47289,6 +47901,38 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_objectlinkingsettings.htm",
     "parent": "Metadata"
   },
+  "OmniChannelSettings": {
+    "fields": [
+      {
+        "Description": "Indicates whether to display a login confirmation upon loading a console with Omni-Channel. The default value is false. When true, the console displays a prompt before logging into Omni-Channel when an agent opens another Omni-Channel console in a different tab or window or refreshes the current tab. The agent is logged out of Omni-Channel on other consoles and any ongoing conversations are ended. Available in API version 47.0 and later.",
+        "Field Name": "enableOmniAutoLoginPrompt",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether Omni-Channel is enabled, giving you access to the objects required to set up the feature in your org. The default value is false.",
+        "Field Name": "enableOmniChannel",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether Secondary Routing Priority is enabled in your org. The default value is false. Available in API version 47.0 and later.",
+        "Field Name": "enableOmniSecondaryRoutingPriority",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether skills-based routing is enabled in your org. The default value is false.",
+        "Field Name": "enableOmniSkillsRouting",
+        "Field Type": "boolean"
+      },
+      {
+        "Description": "Indicates whether the status based capacity model for rep work is enabled or not. The default value is false.",
+        "Field Name": "enableOmniStatusCapModel",
+        "Field Type": "boolean"
+      }
+    ],
+    "short_description": "Represents the Omni-Channel settings for an org.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_omnichannelsettings.htm",
+    "parent": "Metadata"
+  },
   "OpportunityInsightsSettings": {
     "fields": [
       {
@@ -48729,7 +49373,7 @@
         "Field Type": "ReferrerPolicy (enumeration of type string)"
       },
       {
-        "Description": "Sets the HttpOnly attribute on session cookies, making them inaccessible via JavaScript. If true, session ID cookie access is restricted. If false, access is restricted.If you have a custom or packaged application that uses JavaScript to access session ID cookies, your application breaks if requireHttpOnly is set to true. The application can't access the cookie. This field is available in API version 40.0 and later.",
+        "Description": "Sets the HttpOnly attribute on session cookies, making them inaccessible via JavaScript. If true, session ID cookie access is restricted. If false, access isn’t restricted.If you have a custom or packaged application that uses JavaScript to access session ID cookies, your application breaks if requireHttpOnly is set to true. The application can't access the cookie. This field is available in API version 40.0 and later.",
         "Field Name": "requireHttpOnly",
         "Field Type": "boolean"
       },
@@ -48764,6 +49408,11 @@
         "Field Type": "boolean"
       },
       {
+        "Description": "Indicates whether to disable HTML sanitization when using the aura:unescapedHtml component.Available in API version 67.0 and later.",
+        "Field Name": "unescapedHtmlSanitization",
+        "Field Type": "boolean"
+      },
+      {
         "Description": "The redirection behavior when a user who accesses Salesforce via Lightning Experience clicks a hyperlink in a URL field with a target URL that isn’t trusted. Valid values are: AlwaysAllowed NeverAllowed WithUserPermission To specify the URLs that you trust, use the RedirectWhitelistUrl Metadata type. Available in API version 64.0 and later. Secure redirections to untrusted URLs in Lightning Experience is a pilot or beta service that is subject to the Beta Services Terms at Agreements - Salesforce.com or a written Unified Pilot Agreement if executed by Customer, and applicable terms in the Product Terms Directory. Use of this pilot or beta service is at the Customer's sole discretion.",
         "Field Name": "untrustedRedirect",
         "Field Type": "untrustedRedirect (enumeration of type string)"
@@ -48772,6 +49421,11 @@
         "Description": "Redirects all expired tabs in your browser to your custom logout URL (true). By default, this option is enabled for all new orgs and is available in API version 52.0 and later.For orgs created prior to the Summer ’21 release, the default setting is false. Before enabling this setting, review these considerations. This setting uses the browser’s local storage to store the custom logout URL. Verify that this setting doesn’t interfere with your custom login integrations.",
         "Field Name": "useLocalStorageForLogoutUrl",
         "Field Type": "boolean"
+      },
+      {
+        "Description": "Reserved for future use. The default value is allow.Available in API version 67.0 and later.",
+        "Field Name": "vfInlineScriptInjection",
+        "Field Type": "VfInlineScriptInjection (enumeraion of type string)"
       },
       {
         "Description": "Custom email template for the welcome email that new internal users receive when they're registered. This field supports only Classic email templates.Available in API version 63.0 and later.",
@@ -51823,6 +52477,109 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_synonymdictionary.htm",
     "parent": "Metadata"
   },
+  "Tag": {
+    "fields": [
+      {
+        "Description": "A description of the tag.",
+        "Field Name": "description",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Label that identifies the tag in the Salesforce user interface.",
+        "Field Name": "label",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The unique name of the tag. Can contain only underscores and alphanumeric characters and must be unique in your org. It must begin with a letter, not include spaces, not end with an underscore, and not contain two consecutive underscores.",
+        "Field Name": "name",
+        "Field Type": "string"
+      },
+      {
+        "Description": "A list of options associated with the tag.",
+        "Field Name": "options",
+        "Field Type": "TagOption[]"
+      },
+      {
+        "Description": "A list of properties associated with the tag.",
+        "Field Name": "properties",
+        "Field Type": "TagProperty[]"
+      }
+    ],
+    "short_description": "Reserved for future use.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_tag.htm",
+    "parent": "Metadata"
+  },
+  "TagOption": {
+    "fields": [
+      {
+        "Description": "Required. The name of the option.",
+        "Field Name": "name",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The value of the option.",
+        "Field Name": "value",
+        "Field Type": "boolean"
+      }
+    ],
+    "short_description": "Represents an option associated with a tag.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_tag.htm",
+    "parent": "Metadata"
+  },
+  "TagProperty": {
+    "fields": [
+      {
+        "Description": "Required. The name of the property.",
+        "Field Name": "name",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The value of the property.",
+        "Field Name": "value",
+        "Field Type": "string"
+      }
+    ],
+    "short_description": "Represents a property associated with a tag.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_tag.htm",
+    "parent": "Metadata"
+  },
+  "TagSet": {
+    "fields": [
+      {
+        "Description": "A description of the tag set.",
+        "Field Name": "description",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. Label that identifies the tag set in the Salesforce user interface.",
+        "Field Name": "label",
+        "Field Type": "string"
+      },
+      {
+        "Description": "Required. The unique name of the tag set. Can contain only underscores and alphanumeric characters and must be unique in your org. It must begin with a letter, not include spaces, not end with an underscore, and not contain two consecutive underscores.",
+        "Field Name": "name",
+        "Field Type": "string"
+      },
+      {
+        "Description": "A list of options associated with the tag set.",
+        "Field Name": "options",
+        "Field Type": "TagOption[]"
+      },
+      {
+        "Description": "A list of properties associated with the tag set.",
+        "Field Name": "properties",
+        "Field Type": "TagProperty[]"
+      },
+      {
+        "Description": "A list of tags included in this tag set.",
+        "Field Name": "tags",
+        "Field Type": "Tag[]"
+      }
+    ],
+    "short_description": "Reserved for future use.",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_tagset.htm",
+    "parent": "Metadata"
+  },
   "Territory": {
     "fields": [
       {
@@ -53588,7 +54345,7 @@
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_translations.htm",
     "parent": "Metadata"
   },
-  "UIBundle (Beta)": {
+  "UIBundle": {
     "fields": [
       {
         "Description": "A description of what the web application does.",
@@ -53611,7 +54368,7 @@
         "Field Type": "string"
       },
       {
-        "Description": "Specifies the Salesforce target where the app is supported. Valid values are: AppLauncher: Makes the app available in the App Launcher. This is the default target if you don’t specify a value. Experience: Indicates that the app is an external-facing site or portal and makes it available in the Digital Experiences app.",
+        "Description": "Specifies the Salesforce target where the app is supported. Valid values are: AppLauncher: Deprecated in API version 67.0. Instead, use CustomApplication. Makes the app available in the App Launcher. CustomApplication: When used with the CustomApplication metadata type, makes the app available in the App Launcher. This is the default target if you don’t specify a value. Available in API version 67.0 and later. Experience: Indicates that the app is an external-facing site or portal and makes it available in the Digital Experiences app.",
         "Field Name": "target",
         "Field Type": "string"
       },
@@ -53621,7 +54378,7 @@
         "Field Type": "string"
       }
     ],
-    "short_description": "Represents a Salesforce Multi-Framework app, such as a React app.",
+    "short_description": "Represents the UI of a Salesforce Multi-Framework app, such as a React app.",
     "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_uibundle.htm",
     "parent": "Metadata"
   },
